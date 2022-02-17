@@ -459,6 +459,14 @@ class MusicModule(reactContext: ReactApplicationContext) : ReactContextBaseJavaM
     }
 
     @ReactMethod
+    fun disableNotificationIcons(check: Boolean, callback: Promise) {
+        if (verifyServiceBoundOrReject(callback)) return
+
+        musicService.disableNotificationIcons(check)
+        callback.resolve(null)
+    }
+
+    @ReactMethod
     fun getTrack(index: Int, callback: Promise) {
         if (verifyServiceBoundOrReject(callback)) return
 

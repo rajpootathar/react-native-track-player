@@ -216,6 +216,10 @@ async function getRepeatMode(): Promise<RepeatMode> {
   return TrackPlayer.getRepeatMode()
 }
 
+async function disableNotificationIcons(check: boolean): Promise<void> {
+  return TrackPlayer.disableNotificationIcons(check)
+}
+
 export default {
   // MARK: - General API
   setupPlayer,
@@ -258,4 +262,6 @@ export default {
   getPosition,
   getState,
   getRepeatMode,
+
+  disableNotificationIcons,
 }

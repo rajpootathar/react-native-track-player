@@ -52,6 +52,7 @@ class MusicService : HeadlessJsTaskService() {
     private var capabilities: List<Capability> = emptyList()
     private var notificationCapabilities: List<Capability> = emptyList()
     private var compactCapabilities: List<Capability> = emptyList()
+    private var disableNotificationIcons: Boolean = false
 
     fun setupPlayer(playerOptions: Bundle?, promise: Promise?) {
         val bufferOptions = BufferConfig(
@@ -220,6 +221,13 @@ class MusicService : HeadlessJsTaskService() {
             callback(player.playerOptions.repeatMode)
         }
     }
+
+    fun disableNotificationIcons(check: Boolean) {
+        handler.post {
+            disableNotificationIcons = check
+        }
+    }
+
 
     fun setRepeatMode(value: RepeatMode) {
         handler.post {
